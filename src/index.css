@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-brand-cream: #F9F8F3;
+  --color-brand-gold: #C5A059;
+  --color-brand-dark: #1A1A1A;
+  --color-brand-green: #1B4332;
+  --color-brand-border: rgba(26, 26, 26, 0.1);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-dark font-sans antialiased;
+  }
+}
+
+.luxury-border {
+  border: 1px solid var(--color-brand-border);
+}
+
+.luxury-underline {
+  position: relative;
+}
+
+.luxury-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-brand-gold);
+  transition: width 0.3s ease;
+}
+
+.luxury-underline:hover::after {
+  width: 100%;
+}
